@@ -1,0 +1,72 @@
+
+  <!-- ======= Sidebar ======= -->
+  <aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link " routerLink="/home">
+          <i class="bi bi-grid"></i>
+          <span>Dashboard</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-menu-button-wide"></i><span>Students</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a routerLink="/student/list">
+              <i class="bi bi-circle"></i><span>All Students</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/student/add">
+              <i class="bi bi-circle"></i><span>Add Student</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#doctor-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-layout-text-window-reverse"></i><span>Doctors</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="doctor-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a routerLink="/doctor/list">
+              <i class="bi bi-circle"></i><span>All Doctors</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/doctor/add">
+              <i class="bi bi-circle"></i><span>Add Doctors</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-target="#course-nav" data-bs-toggle="collapse" href="#">
+          <i class="bi bi-bar-chart"></i><span>Courses</span><i class="bi bi-chevron-down ms-auto"></i>
+        </a>
+        <ul id="course-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li>
+            <a routerLink="/course/list">
+              <i class="bi bi-circle"></i><span>All Courses</span>
+            </a>
+          </li>
+          <li>
+            <a routerLink="/course/add">
+              <i class="bi bi-circle"></i><span>Add Course</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <!-- End Components Nav -->
+    </ul>
+
+  </aside><!-- End Sidebar-->

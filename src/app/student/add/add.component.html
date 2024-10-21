@@ -1,0 +1,174 @@
+<main id="main" class="main">
+
+  <div class="pagetitle">
+    <h1>Add New Student</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+        <li class="breadcrumb-item">Student</li>
+        <li class="breadcrumb-item active">Add new Student</li>
+      </ol>
+    </nav>
+  </div><!-- End Page Title -->
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Add New Student</h5>
+
+            <!-- Multi Columns Form -->
+            <form class="row g-3">
+              <div class="col-md-6">
+                <label for="inputName5" class="form-label"> Name</label>
+                <input type="text" class="form-control" id="inputName5" placeholder="enter name" name="name"
+                  [(ngModel)]='student.name' ngModel #name="ngModel" required minlength="3" maxlength="20">
+
+                <p class="text-danger" *ngIf="name.touched && name.invalid">
+                  <span *ngIf="name.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="name.errors?.['minlength']"> This Field Should be More Than 3 Character </span>
+                  <span *ngIf="name.errors?.['maxlength']"> This Field Should be Less Than 20 Character </span>
+                </p>
+
+
+              </div>
+
+              <div class="col-md-6">
+                <label for="age" class="form-label"> Age</label>
+                <input type="number" class="form-control" id="age" placeholder="enter Age" name="age"
+                  [(ngModel)]='student.age' ngModel #age="ngModel" required min="0">
+
+                <p class="text-danger" *ngIf="age.touched && age.invalid">
+                  <span *ngIf="age.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="age.errors?.['min']"> This Field Should Greater Than 0 </span>
+                </p>
+
+              </div>
+
+              <div class="col-md-6">
+                <label for="Address" class="form-label"> Address</label>
+                <input type="text" class="form-control" id="Address" placeholder="enter Address" name="address"
+                  [(ngModel)]='student.address' ngModel #address="ngModel" required minlength="3" maxlength="100">
+                <p class="text-danger" *ngIf="address.touched && address.invalid">
+                  <span *ngIf="address.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="address.errors?.['minlength']"> This Field Should be More Than 3 Character </span>
+                  <span *ngIf="address.errors?.['maxlength']"> This Field Should be Less Than 20 Character </span>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <label for="Level" class="form-label"> Level</label>
+                <select name="level" class="form-control" [(ngModel)]='student.level' required ngModel #level="ngModel">
+                  <option value="1">Level 1</option>
+                  <option value="2">Level 2</option>
+                  <option value="3">Level 3</option>
+                  <option value="4">Level 4</option>
+                </select>
+
+                <p class="text-danger" *ngIf="level.touched && level.invalid">
+                  <span *ngIf="level.errors?.['required']"> This Field is Required </span>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <label for="GPA" class="form-label"> GPA</label>
+                <input type="number" class="form-control" id="GPA" placeholder="enter GPA" name="GPA"
+                  [(ngModel)]='student.GPA' ngModel #gpa="ngModel" required max="4" min="0">
+
+
+                <p class="text-danger" *ngIf="gpa.touched && gpa.invalid">
+                  <span *ngIf="gpa.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="gpa.errors?.['min']"> This Field Should Greater Than 0 </span>
+                  <span *ngIf="gpa.errors?.['max']"> This Field Should Less Than or Equal 4 </span>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <label for="departmentName" class="form-label"> Department Name</label>
+                <select name="departmentName" class="form-control" [(ngModel)]='student.departmentName' required ngModel
+                  #departmentName="ngModel">
+                  <option value="IS">Information System </option>
+                  <option value="IT">Inforamtion Technology</option>
+                  <option value="CS">Computer Science</option>
+                  <option value="AI">Artifcial Intlegience</option>
+                </select>
+                <p class="text-danger" *ngIf="departmentName.touched && departmentName.invalid">
+                  <span *ngIf="departmentName.errors?.['required']"> This Field is Required </span>
+                </p>
+              </div>
+
+
+              <div class="col-md-6">
+                <label for="phone" class="form-label"> Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="enter Phone" name="phone"
+                  [(ngModel)]='student.phone' required ngModel #phone="ngModel" maxlength="20" minlength="9">
+                <p class="text-danger" *ngIf="phone.touched && phone.invalid">
+                  <span *ngIf="phone.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="phone.errors?.['minlength']"> This Field Should be Greater Than 9 Number </span>
+                  <span *ngIf="phone.errors?.['maxlength']"> This Field Should Less Than or Equal 20 Number </span>
+                </p>
+              </div>
+
+              <div class="col-md-6">
+                <label for="inputEmail5" class="form-label">Email</label>
+                <input (change)="print(email)" type="email" class="form-control" id="inputEmail5" placeholder="Enter email" name="email"
+                  [(ngModel)]='student.email' required ngModel #email="ngModel" maxlength="50" minlength="9" >
+                <p class="text-danger" *ngIf="email.touched && email.invalid">
+                  <span *ngIf="email.errors?.['required']"> This Field is Required </span>
+                  <span *ngIf="email.errors?.['minlength']"> This Field Should be Greater Than 9 Character </span>
+                  <span *ngIf="email.errors?.['maxlength']"> This Field Should Less Than or Equal 50 Character </span>
+                </p>
+              </div>
+
+              <div class="col-md-4">
+                <label for="inputState" class="form-label">Gneder</label>
+                <select id="inputState" class="form-select" name="gender" [(ngModel)]='student.gender' required ngModel
+                  #gender="ngModel">
+                  <option selected value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+
+                <p class="text-danger" *ngIf="gender.touched && gender.invalid">
+                  <span *ngIf="gender.errors?.['required']"> This Field is Required </span>
+                </p>
+              </div>
+
+
+              <div class="text-center">
+
+                <button type="submit" *ngIf="name.errors?.['required'] ||
+                age.errors?.['required'] ||
+                address.errors?.['required'] ||
+                level.errors?.['required'] ||
+                gpa.errors?.['required'] ||
+                departmentName.errors?.['required'] ||
+                phone.errors?.['required'] ||
+                email.errors?.['required'] ||
+                gender.errors?.['required']" class="btn btn-danger"
+                  (click)="addnewStudent(name , age , address, level ,  gpa , departmentName , phone , email , gender )">Submit</button>
+                
+                  <button
+                  *ngIf="!name.errors?.['required'] &&
+                !age.errors?.['required'] &&
+                !address.errors?.['required'] &&
+                !level.errors?.['required'] &&
+                !gpa.errors?.['required'] &&
+                !departmentName.errors?.['required'] &&
+                !phone.errors?.['required'] &&
+                !email.errors?.['required'] &&
+                !gender.errors?.['required']"
+                  type="submit" class="btn btn-primary"
+                  (click)="addnewStudent(name , age , address, level ,  gpa , departmentName , phone , email , gender )">Submit</button>
+
+                <button type="reset" class="btn btn-secondary">Reset</button>
+              </div>
+            </form><!-- End Multi Columns Form -->
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main><!-- End #main -->

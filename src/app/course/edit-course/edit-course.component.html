@@ -1,0 +1,130 @@
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Edit Course</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+          <li class="breadcrumb-item">Course</li>
+          <li class="breadcrumb-item active">Edit Course</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Edit Course</h5>
+  
+              <!-- Multi Columns Form -->
+              <form class="row g-3">
+                <div class="col-md-6">
+                  <label for="inputName5" class="form-label"> Name</label>
+                  <input type="text" class="form-control" id="inputName5" placeholder="enter name" name="name"
+                    [(ngModel)]='obj.name' ngModel #name="ngModel" required minlength="3" maxlength="20">
+  
+                  <p class="text-danger" *ngIf="name.touched && name.invalid">
+                    <span *ngIf="name.errors?.['required']"> This Field is Required </span>
+                    <span *ngIf="name.errors?.['minlength']"> This Field Should be More Than 3 Character </span>
+                    <span *ngIf="name.errors?.['maxlength']"> This Field Should be Less Than 20 Character </span>
+                  </p>
+  
+  
+                </div>
+  
+                <div class="col-md-6">
+                    <label for="Hours" class="form-label"> Hours </label>
+                    <input type="number" class="form-control" id="Hours" placeholder="enter Hours"
+                        name="hours" [(ngModel)]='obj.hours' ngModel #hours="ngModel" required min="1"
+                        max="3">
+
+                    <p class="text-danger" *ngIf="hours.touched && hours.invalid">
+                        <span *ngIf="hours.errors?.['required']"> This Field is Required </span>
+                        <span *ngIf="hours.errors?.['min']"> This Field Should be Greater Than or equal 1
+                        </span>
+                        <span *ngIf="hours.errors?.['max']"> This Field Should be Less Than or equal 3
+                        </span>
+                    </p>
+
+                </div>
+
+                <div class="col-md-6">
+                    <label for="Grade" class="form-label"> Grade</label>
+                    <input type="number" class="form-control" id="Grade" placeholder="enter Grade"
+                        name="grade" [(ngModel)]='obj.grade' ngModel #grade="ngModel" required min="0"
+                        max="100">
+                    <p class="text-danger" *ngIf="grade.touched && grade.invalid">
+                        <span *ngIf="grade.errors?.['required']"> This Field is Required </span>
+                        <span *ngIf="grade.errors?.['min']"> This Value Should be Greater than or Equal 0
+                        </span>
+                        <span *ngIf="grade.errors?.['max']"> This Value Should be Less than or Equal 100
+                        </span>
+                    </p>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="Level" class="form-label"> Level </label>
+                    <select name="level" id="Level" class="form-control" [(ngModel)]='obj.level' required
+                        ngModel #level="ngModel">
+                        <option value="1"> Level 1 </option>
+                        <option value="2"> Level 2</option>
+                        <option value="3"> Level 3</option>
+                        <option value="4"> Level 4</option>
+                    </select>
+                    <p class="text-danger" *ngIf="level.touched && level.invalid">
+                        <span *ngIf="level.errors?.['required']"> This Field is Required </span>
+                    </p>
+                </div>
+
+
+                <div class="col-md-6">
+                    <label for="departmentName" class="form-label"> Department Name</label>
+                    <select name="departmentName" class="form-control" [(ngModel)]='obj.departmentName'
+                        required ngModel #departmentName="ngModel">
+                        <option value="IS">Information System </option>
+                        <option value="IT">Inforamtion Technology</option>
+                        <option value="CS">Computer Science</option>
+                        <option value="AI">Artifcial Intlegience</option>
+                    </select>
+                    <p class="text-danger" *ngIf="departmentName.touched && departmentName.invalid">
+                        <span *ngIf="departmentName.errors?.['required']"> This Field is Required </span>
+                    </p>
+                </div>
+
+
+
+  
+  
+                <div class="text-center">
+  
+                  <button type="submit" *ngIf="name.errors?.['required'] ||
+                  hours.errors?.['required'] ||
+                  grade.errors?.['required'] ||
+                  level.errors?.['required'] ||
+                  departmentName.errors?.['required'] " class="btn btn-danger"
+                    (click)="editnew(name , hours , grade, level ,  departmentName  )">Update</button>
+                  
+                    <button
+                    *ngIf="!name.errors?.['required'] &&
+                  !hours.errors?.['required'] &&
+                  !grade.errors?.['required'] &&
+                  !level.errors?.['required'] &&
+                  !departmentName.errors?.['required']"
+                    type="submit" class="btn btn-primary me-2"
+                    (click)="editnew(name , hours , grade, level ,   departmentName )">Update</button>
+  
+                  <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+              </form><!-- End Multi Columns Form -->
+  
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </section>
+  
+  </main><!-- End #main -->
